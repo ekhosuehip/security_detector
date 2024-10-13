@@ -17,3 +17,16 @@ FIREBASE_CREDENTIALS_PATH = "ServiceAccountKey.json"
 FIREBASE_STORAGE_BUCKET = "only-motion-detector.appspot.com"
 # Alarm sound file path
 ALARM_SOUND_PATH = "alarm.mp3" 
+
+# Initialize Firebase Admin SDK
+cred = credentials.Certificate(FIREBASE_CREDENTIALS_PATH)
+firebase_admin.initialize_app(cred, {'storageBucket': FIREBASE_STORAGE_BUCKET})
+bucket = storage.bucket()
+
+# Initialize MQTT client
+client = mqtt.Client()
+client.connect(MQTT_BROKER, MQTT_PORT)
+
+# Initialize the camera
+macbook_camera = cv2.VideoCapture(0)
+iphone_camera = cv2.VideoCapture(1)
