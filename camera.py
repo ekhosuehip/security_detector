@@ -46,3 +46,7 @@ frame_height_iphone = int(iphone_camera.get(cv2.CAP_PROP_FRAME_HEIGHT))
 
 recordings_folder = "recordings"
 os.makedirs(recordings_folder, exist_ok=True)
+
+# Generate a unique filename
+timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+mp4_video_path_macbook = os.path.join(recordings_folder, f'motion_detected_macbook_{timestamp}.mp4')
