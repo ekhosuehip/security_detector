@@ -44,3 +44,5 @@ frame_height_macbook = int(macbook_camera.get(cv2.CAP_PROP_FRAME_HEIGHT))
 frame_width_iphone = int(iphone_camera.get(cv2.CAP_PROP_FRAME_WIDTH))
 frame_height_iphone = int(iphone_camera.get(cv2.CAP_PROP_FRAME_HEIGHT))
 
+recordings_folder = "recordings"
+os.makedirs(recordings_folder, exist_ok=True)
