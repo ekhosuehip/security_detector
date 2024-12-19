@@ -50,3 +50,12 @@ os.makedirs(recordings_folder, exist_ok=True)
 # Generate a unique filename
 timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
 mp4_video_path_macbook = os.path.join(recordings_folder, f'motion_detected_macbook_{timestamp}.mp4')
+
+# Define the codec and create a VideoWriter object for MacBook camera
+fourcc_macbook = cv2.VideoWriter_fourcc(*'mp4v')
+out_macbook = cv2.VideoWriter(mp4_video_path_macbook, fourcc_macbook, 20.0, (frame_width_macbook, frame_height_macbook))
+
+# Optional: Generate a unique filename with timestamp for iPhone camera
+mp4_video_path_iphone = os.path.join(recordings_folder, f'motion_detected_iphone_{timestamp}.mp4')
+fourcc_iphone = cv2.VideoWriter_fourcc(*'mp4v')
+out_iphone = cv2.VideoWriter(mp4_video_path_iphone, fourcc_iphone, 20.0, (frame_width_iphone, frame_height_iphone))
