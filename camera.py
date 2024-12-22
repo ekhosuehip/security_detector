@@ -59,3 +59,14 @@ out_macbook = cv2.VideoWriter(mp4_video_path_macbook, fourcc_macbook, 20.0, (fra
 mp4_video_path_iphone = os.path.join(recordings_folder, f'motion_detected_iphone_{timestamp}.mp4')
 fourcc_iphone = cv2.VideoWriter_fourcc(*'mp4v')
 out_iphone = cv2.VideoWriter(mp4_video_path_iphone, fourcc_iphone, 20.0, (frame_width_iphone, frame_height_iphone))
+
+# Give some time for cameras to warm up
+time.sleep(2)
+
+# Read the first frame from MacBook camera
+ret_macbook, frame1_macbook = macbook_camera.read()
+ret_macbook, frame2_macbook = macbook_camera.read()
+
+# Read the first frame from iPhone camera (if available)
+ret_iphone, frame1_iphone = iphone_camera.read()
+ret_iphone, frame2_iphone = iphone_camera.read()
